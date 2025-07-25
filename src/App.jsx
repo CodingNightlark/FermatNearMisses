@@ -11,12 +11,12 @@ function App() {
   const [ loading, setLoading ] = useState(false)
   const [ minX, setMinX ] = useState(1000)
   const [ maxX, setMaxX ] = useState(3000)
-  const [ minN, setMinN ] = useState(1000)
-  const [ maxN, setMaxN ] = useState(3000)
+  const [ minN, setMinN ] = useState(3)
+  const [ maxN, setMaxN ] = useState(30)
    
   const handleClick = () => {
     if (result) {
-      findNearMiss() // Reset the search if a result already exists
+      findNearMiss({minX, maxX, minN, maxN}) // Reset the search if a result already exists
     }
     setLoading(true)
     setTimeout(() => {
@@ -52,7 +52,7 @@ function App() {
         
             <p>Near Miss Found!</p>
             
-            <InlineMath math={`${result.a}^${result.n} + ${result.b}^${result.n} \\approx ${result.c}^${result.n}`} />
+            <InlineMath math={`${result.a}^{${result.n}} + ${result.b}^{${result.n}} \\approx ${result.c}^{${result.n}}`} />
             
           </motion.div>
        ) }

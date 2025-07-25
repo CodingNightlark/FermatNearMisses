@@ -5,7 +5,7 @@ h1{
   text-align: center;
 }
 
-buttton {
+button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -78,5 +78,14 @@ body {
   font-style: italic;
   text-decoration: underline dotted;
   color: #8e4a13;
+}
+
+.notebook {
+  
+  background-color: seashell;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-top: 2em;
 }
 

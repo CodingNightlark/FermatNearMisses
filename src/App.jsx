@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import {motion} from 'framer-motion'
+import 'katex/dist/katex.min.css';
+import { InlineMath } from 'react-katex';
 import findNearMiss from './Math.jsx'
 import './App.css'
 
-function App() {
+function App() { 
 
   const [result, setResult] = useState(null)
   const [ loading, setLoading ] = useState(false)
@@ -23,19 +26,33 @@ function App() {
   return ( 
     <>
       <div className = "App">
+        <h1>Fermat's <br/>
+        
+          <motion.span 
+            whileHover ={{ rotate: 5, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            style ={{ display: 'inline-block' }}
+            className="near-miss-title"
+            >
+              Near Misses
+            </motion.span>
+        </h1>
          
         {loading && <p>Searching for near-miss...</p>}
 
         {!loading && result && (
-          <div>
-            <h2>Near Miss Found!</h2>
-            <p>a: {result.a}</p>
-            <p>b: {result.b}</p>
-            <p>c: {result.c}</p>
-            <p>n: {result.n}</p>
-          </div>
-        )}
+          <motion.div 
+    
+            className="result-box"
+          >
         
+            <p>Near Miss Found!</p>
+            
+            <InlineMath math={`${result.a}^${result.n} + ${result.b}^${result.n} \\approx ${result.c}^${result.n}`} />
+            
+          </motion.div>
+       ) }
+         
 
         {!loading && result === null && <p>No near miss found.</p>}
 

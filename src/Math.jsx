@@ -11,7 +11,7 @@ function findNearMiss({minX, maxX, minN, maxN}) {
             for(let n = minN; n <= maxN; n++) {   
                     let a = Math.pow(x, n)
                     let b = Math.pow(y, n)
-                    let idealC = Math.pow((a+b), (1/n))
+                    let idealC = Math.pow((a+b), (1/n))   
                     
                     if (Math.abs(idealC - Math.round(idealC)) < tolerance) {
                     

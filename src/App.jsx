@@ -8,6 +8,9 @@ function App() {
   const [ loading, setLoading ] = useState(false)
    
   const handleClick = () => {
+    if (result) {
+      findNearMiss() // Reset the search if a result already exists
+    }
     setLoading(true)
     setTimeout(() => {
        const nearMiss = findNearMiss()
@@ -20,6 +23,7 @@ function App() {
   return ( 
     <>
       <div className = "App">
+         
         {loading && <p>Searching for near-miss...</p>}
 
         {!loading && result && (
@@ -31,14 +35,11 @@ function App() {
             <p>n: {result.n}</p>
           </div>
         )}
-
-        {!loading && !result && (
-          <button onClick={handleClick}>Find Near Miss</button>
-        )}
+        
 
         {!loading && result === null && <p>No near miss found.</p>}
 
-
+        <button onClick={handleClick}> {result ? "Find Another " : "Find Near Miss" } </button>
       </div>
     </> 
   ) 

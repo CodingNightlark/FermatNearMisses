@@ -41,7 +41,11 @@ function App() {
               Near Misses
             </motion.span>
         </h1>
-         
+         <div style={{
+      height: '130px',   // set height
+      overflow: 'auto',  // or 'hidden', 'scroll' depending on desired behavior
+      padding: '10px'
+    }}>
         {loading && <p>Searching for near-miss...</p>}
 
         {!loading && result && (
@@ -56,12 +60,15 @@ function App() {
             
           </motion.div>
        ) }
+
+       
          
 
         {!loading && result === null && <p>No near miss found.</p>} 
-
+</div>
         <button onClick={handleClick}> {result ? "Find Another " : "Find Near Miss" } </button>
       </div>
+      
       
       <div className="inputs">
         <label>

@@ -17,9 +17,9 @@ function findNearMiss({minX, maxX, minN, maxN}) {
                     
                             return { a: x, b: y, c:Math.round(idealC), n: n }
                         
-                    }
+                    } 
                 }
-        }
+        } 
  
     }
     return null // No near miss found 
